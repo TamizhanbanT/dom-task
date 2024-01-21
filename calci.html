@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Simple Calculator</title>
+</head>
+<body>
+  <h1>Simple Calculator</h1>
+  
+  <input type="text" id="display" readonly>
+  
+  <table>
+    <tr>
+      <td><button onclick="appendToDisplay('1')">1</button></td>
+      <td><button onclick="appendToDisplay('2')">2</button></td>
+      <td><button onclick="appendToDisplay('3')">3</button></td>
+      <td><button onclick="performOperation('+')">+</button></td>
+    </tr>
+    <tr>
+      <td><button onclick="appendToDisplay('4')">4</button></td>
+      <td><button onclick="appendToDisplay('5')">5</button></td>
+      <td><button onclick="appendToDisplay('6')">6</button></td>
+      <td><button onclick="performOperation('-')">-</button></td>
+    </tr>
+    <tr>
+      <td><button onclick="appendToDisplay('7')">7</button></td>
+      <td><button onclick="appendToDisplay('8')">8</button></td>
+      <td><button onclick="appendToDisplay('9')">9</button></td>
+      <td><button onclick="performOperation('*')">*</button></td>
+    </tr>
+    <tr>
+      <td><button onclick="appendToDisplay('0')">0</button></td>
+      <td><button onclick="clearDisplay()">C</button></td>
+      <td><button onclick="calculateResult()">=</button></td>
+      <td><button onclick="performOperation('/')">/</button></td>
+    </tr>
+  </table>
+  
+  <script>
+    var display = document.getElementById("display");
+    var currentInput = "";
+    var currentOperation = "";
+    
+    function appendToDisplay(value) {
+      currentInput += value;
+      display.value = currentInput;
+    }
+    
+    function performOperation(operation) {
+      if (currentInput !== "") {
+        currentOperation = operation;
+        currentInput += operation;
+        display.value = currentInput;
+      }
+    }
+    
+    function clearDisplay() {
+      currentInput = "";
+      currentOperation = "";
+      display.value = "";
+    }
+    
+    function calculateResult() {
+      if (currentInput !== "") {
+        try {
+          currentInput = eval(currentInput);
+          display.value = currentInput;
+          currentOperation = "";
+        } catch (error) {
+          display.value = "Error";
+        }
+      }
+    }
+  </script>
+</body>
+</html>
