@@ -4,5 +4,5 @@ comments: code flow are correct , deployed url not given , try to solve all the 
 
 deployed url:
 
-task1:  https://curious-twilight-a9268c.netlify.app/
+task1:  
 task2:  https://curious-dango-743122.netlify.app/
